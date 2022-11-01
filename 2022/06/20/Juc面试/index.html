@@ -323,7 +323,7 @@
   }
 
   var guestInfo = requestSetting(['nick','mail','link'],'')
-  var requiredFields = requestSetting(['nick','mail'],'nick,mail')
+  var requiredFields = requestSetting(['nick','mail'],'nick')
 
   function initValine () {
     const valine = new Valine(Object.assign({
@@ -338,12 +338,15 @@
       enableQQ: true,
       emojiMaps: "",
       path: window.location.pathname,
-      visitor: false
+      visitor: false,
+      master: '81f9e15734f62022d2d895d1785524a3',
+      tagMeta: ['博主','小伙伴','访客'],
+      friends: ['d8ce4b92f52f3313450f1adbc84fa47e']
     }, null))
   }
 
   if (typeof Valine === 'function') initValine() 
-  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
 }
 
 if ('Valine' === 'Valine' || !true) {
